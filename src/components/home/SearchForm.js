@@ -23,25 +23,12 @@ class SearchForm extends Component {
 		}
 		fetchAirports();
 		
-
 		this._handleSubmit = this._handleSubmit.bind(this);
-		// this._handleChange = this._handleChangeOrigin.bind(this);
-		// this._handleChange = this._handleChangeDestination.bind(this);
 	}
 
 	_handleSubmit () {
 		event.preventDefault();
-		this.props.onSubmit(this.state.content);
-		this.setState({content: ''});
 	}
-
-	// _handleChangeDestination() {
-
-	// }
-
-	// _handleChangeOrigin () {
-
-	// }
 	
 	render() {
 		return (
