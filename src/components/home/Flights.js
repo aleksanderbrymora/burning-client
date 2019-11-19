@@ -4,7 +4,7 @@ class Flights extends Component {
 	render() {
 		return (
 			<div>
-				<h2>Flights</h2>
+				<h5>Available flights</h5>
 			</div>
 		)
 	}

@@ -7,17 +7,13 @@ class SearchForm extends Component {
 	constructor() {
 		super();
 		this.state = {
-			origin: [],
-			destination: []
+			cities: []
 		}
 
 		const fetchAirports = () => {
 			axios.get(SERVER_URL).then((response) => {
-				console.log(response);
-				console.log(this);
 				this.setState({
-					origin: response.data.origin,
-					destination: response.data.destination
+					cities: response.data.cities
 				});
 			})
 		}
@@ -26,33 +22,36 @@ class SearchForm extends Component {
 		this._handleSubmit = this._handleSubmit.bind(this);
 	}
 
-	_handleSubmit () {
+	_handleSubmit (event) {
 		event.preventDefault();
 	}
 	
 	render() {
 		return (
-			<form onSubmit={this._handleSubmit}>
-				<select 
-					name="origin" 
-					id="origin" 
-					required 
-				>
-					{this.state.origin.map((airport) => {
-						return <option value={airport.id}>{airport.name}</option>
-					})}
-				</select>
-				<select 
-					name="destination" 
-					id="destination" 
-					required
-				>
-					{this.state.destination.map((airport) => {
-						return <option value={airport.id}>{airport.name}</option>
-					})}
-				</select>
-				<input type="submit" value="Search" />
-			</form>
+			<div>
+				<h2>Search for a flight</h2>
+				<form onSubmit={this._handleSubmit}>
+					<select 
+						name="origin" 
+						id="origin" 
+						required 
+					>
+						{this.state.cities.map((airport) => {
+							return <option value={airport} key={airport}>{airport}</option>
+						})}
+					</select>
+					<select 
+						name="destination" 
+						id="destination" 
+						required
+					>
+						{this.state.cities.map((airport) => {
+							return <option value={airport} key={airport}>{airport}</option>
+						})}
+					</select>
+					<input type="submit" value="Search" />
+				</form>
+			</div>
 		)
 	}
 }

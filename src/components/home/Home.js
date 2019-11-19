@@ -6,9 +6,14 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-
+      query: {
+        origin: {},
+        destination: {}
+      }
     }
   }
+
+  
 
   render() {
     return (
