@@ -12,17 +12,7 @@ class Home extends Component {
       query: {
         origin: {},
         destination: {},
-        flights: [
-          {
-            date: "",
-            destination: "",
-            id: null,
-            number: "",
-            origin: "",
-            plane_id: null,
-            url: ""
-          }
-        ]
+        flights: []
       }
     }
     this.flightSearch = this.flightSearch.bind(this);
