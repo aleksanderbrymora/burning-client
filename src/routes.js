@@ -8,7 +8,6 @@ const Routes = (
 	<Router>
 		<div>
 			<Route exact path="/" component={Home} />
-			<Route exact path="/:origin/:destination" component={Home} />
 		</div>
 	</Router>
 );
