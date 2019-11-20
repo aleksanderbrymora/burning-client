@@ -5,7 +5,7 @@ const Flight = (props) => {
 	const url = `/flights/${props.id}`
 	return (
 		<p alt={props.id}>
-			{props.origin} -> {props.destination} - {props.date} <Link to={url}>Select</Link>
+			{props.origin} -> {props.destination} - {props.date} - <Link to={url}>Select</Link>
 		</p>
 	)
 }
@@ -22,6 +22,7 @@ const Flights = (props) => {
 							<Flight 
 								key={flight.id}
 								id={flight.id}
+								date={flight.date}
 								origin={flight.origin}
 								destination={flight.destination}
 							/>
