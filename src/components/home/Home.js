@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import SearchForm from './SearchForm'
 import Flights from './Flights'
 import axios from 'axios';
-<<<<<<< HEAD
-import { Link } from 'react-router-dom';
 
-=======
 import Navbar from '../nav/Navbar'
->>>>>>> 0a96c4f651f863ec3ced14686124e77ed3f1fa7f
 
 const URL_BASE = 'https://aleks-chris-burning-server.herokuapp.com'
 
@@ -32,30 +28,13 @@ class Home extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <div className="container">
 
-         <nav className='row bg-primary d-flex flex-row '>
-          <div className='col-5 d-flex flex-row justify-content-between'>
-            <Link className='nav-item m-2 btn btn-outline-light' to='#'>Flights</Link>
-            <Link className='nav-item m-2 btn btn-outline-light' to='#'>Reservations</Link>
-            <Link className='nav-item m-2 btn btn-outline-light' to='#'>Planes</Link>
-          </div>
-          <div className='col-7 d-flex flex-row justify-content-end'>
-
-          </div>
-        </nav>
-
-        <SearchForm onSubmit={this.flightSearch} />
-        <Flights flights={this.state.flights} />
-=======
       <div>
         <Navbar />
         <div className="container">
           <SearchForm onSubmit={this.flightSearch} />
           <Flights flights={this.state.flights} />
         </div>
->>>>>>> 0a96c4f651f863ec3ced14686124e77ed3f1fa7f
       </div>
     )
   };
