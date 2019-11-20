@@ -7,13 +7,15 @@ class SeatChooser extends Component {
             seatPicked: {
                 code: '',
                 row: '',
-                col: ''
+                col: '',
             }
         }
         this._handleSeatPick = this._handleSeatPick.bind(this)
     }
 
     _handleSeatPick (seat, col, row) {
+        // TODO First click always returns empty details
+        // TODO Taken prop should contain client
         this.setState({
             seatPicked: {
                 code: seat,
@@ -21,6 +23,7 @@ class SeatChooser extends Component {
                 col: col
             }
         })
+        console.log(this.state.seatPicked);
 
         // can add code here to mark the chosen seat as coloured grey or whatever, or maybe that happens below in the build code based on the state? 
         // regardless each row has key of the row number, and each seat within the row has key of it's col number, if that helps
@@ -31,7 +34,7 @@ class SeatChooser extends Component {
         return (
             <div>
                 <table>
-                    <Rows cols={this.props.cols} rows={this.props.rows} onClick={this._handleSeatPick} />
+                    <Rows taken={this.props.taken} cols={this.props.cols} rows={this.props.rows} onClick={this._handleSeatPick} />
                 </table>
             </div>
         )
@@ -53,9 +56,9 @@ const Rows = (props) => {
     };
     
     let rowItems = '';
-    rowItems = rowArr.map((row) => 
-        <Columns key={row} cols={colArr} row={row} onClick={props.onClick}/>
-    )
+    rowItems = rowArr.map((row) => {
+        return (<Columns taken={props.taken} key={row} cols={colArr} row={row} onClick={props.onClick}/>)
+    })
 
     return(
         <tbody>
@@ -66,10 +69,12 @@ const Rows = (props) => {
 }
 
 const Columns = (props) => {
+    // console.log("Columns: ", props);
+
     let seatItems = '';
 
     seatItems = props.cols.map( (col) => 
-        <Seat key={col} col={col} row={props.row} onClick={props.onClick} />
+        <Seat taken={props.taken} key={col} col={col} row={props.row} onClick={props.onClick} />
     )
 
     return(
@@ -83,8 +88,13 @@ const Seat = (props) => {
     let row = props.row;
     let mapping = ['','A','B','C','D','E','F','G','H']
     let seat = row.toString() + mapping[props.col]
-    if (seat.length === 2) seat = '0' + seat
-    return(
-        <td onClick={() => props.onClick(seat, props.col, row)}>{seat}</td>
-    )
+    if (seat.length === 2) seat = '0' + seat;
+    // console.log(seat);
+    // console.log(props);
+    // return (<td className="rounded-circle" onClick={() => props.onClick(seat, props.col, row)}>{seat}</td>)
+    if (props.taken.includes(seat)) {
+        return (<td className="btn btn-danger m-1" onClick={() => props.onClick(seat, props.col, row)}>{seat}</td>)
+    } else {
+        return (<td className="btn btn-sm btn-outline-success m-1" onClick={() => props.onClick(seat, props.col, row)}>{seat}</td>)
+    }
 }

@@ -4,7 +4,7 @@ import Seat from './Seat'
 const Row = (props) => {
 	return (
 		<div>
-			<Seat  />
+			<Seat />
 		</div>
 	)
 }

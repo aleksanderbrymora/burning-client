@@ -4,9 +4,17 @@ import { Link } from 'react-router-dom';
 const Flight = (props) => {
 	const url = `/flights/${props.id}`
 	return (
-		<p alt={props.id}>
-			{props.origin} -> {props.destination} - {props.date} - <Link to={url}>Select</Link>
-		</p>
+		<div className="card w-50 text-center">
+			<div className="card-body">
+				<h5 className="card-title">
+					{props.origin} to {props.destination}
+				</h5>
+				<p className="card-text" alt={props.id}>
+					{props.date}
+				</p>
+				<Link className="btn btn-outline-primary" to={url}>Select</Link>
+			</div>
+		</div>
 	)
 }
 

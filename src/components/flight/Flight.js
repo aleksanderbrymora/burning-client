@@ -30,18 +30,18 @@ class Flight extends Component {
 		if (!!this.state.plane) {
 			const flight = this.state.flight;
 			const plane = this.state.plane;
-			console.log(flight);
-			console.log(plane);
+			// console.log(flight);
+			// console.log(plane);
 			// console.log(this.state);
 			return (
-				<div>
-					<div className="flight-data">
+				<div className="container">
+					<div className="flight-data m-3">
 						<h1>{flight.origin} to {flight.destination}</h1>
-						<h2>Flight number: {flight.number}</h2>
-						<h3>{flight.date}</h3>
+						<h3>Flight number: {flight.number}</h3>
+						<h5>{flight.date}</h5>
 					</div>
-					<div className="seats-view">
-						
+					<div className="seats-view mt-5 mx-auto">
+						<h2 className="text-center">Choose your seat</h2>
 						<SeatChooser rows={plane.row} cols={plane.column} taken={flight.taken_seats} />
 					</div>
 				</div>
