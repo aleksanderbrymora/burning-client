@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SeatChooser from './SeatChooser';
-import { Link } from 'react-router-dom';
 
+import Navbar from '../nav/Navbar'
 
 class Flight extends Component {
 	constructor(props) {
@@ -36,26 +36,19 @@ class Flight extends Component {
 			// console.log(plane);
 			// console.log(this.state);
 			return (
-				<div className="container">
-					
-					<nav className='row bg-primary d-flex flex-row '>
-          				<div className='col-5 d-flex flex-row justify-content-between'>
-							<Link className='nav-item m-2 btn btn-outline-light' to='#'>Flights</Link>
-							<Link className='nav-item m-2 btn btn-outline-light' to='#'>Reservations</Link>
-							<Link className='nav-item m-2 btn btn-outline-light' to='#'>Planes</Link>
-          				</div>
-						<div className='col-7 d-flex flex-row justify-content-end'>
+
+				<div>
+					<Navbar />
+					<div className="container">
+						<div className="flight-data m-3">
+							<h1>{flight.origin} to {flight.destination}</h1>
+							<h3>Flight number: {flight.number}</h3>
+							<h5>{flight.date}</h5>
 						</div>
-        			</nav>
-					
-					<div className="flight-data m-3">
-						<h1>{flight.origin} to {flight.destination}</h1>
-						<h3>Flight number: {flight.number}</h3>
-						<h5>{flight.date}</h5>
-					</div>
-					<div className="seats-view mt-5 mx-auto">
-						<h2 className="text-center">Choose your seat</h2>
-						<SeatChooser rows={plane.row} cols={plane.column} taken={flight.taken_seats} />
+						<div className="seats-view mt-5 mx-auto">
+							<h2 className="text-center">Choose your seat</h2>
+							<SeatChooser rows={plane.row} cols={plane.column} taken={flight.taken_seats} />
+						</div>
 					</div>
 				</div>
 			)
