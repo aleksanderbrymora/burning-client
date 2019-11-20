@@ -2,13 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 // !Temp links for the navigation between React and Server sites
-const serverURL = 'https://aleks-chris-burning-server.herokuapp.com';
-const reactURL = 'http://localhost:3000/#/'
+// const serverURL = 'https://aleks-chris-burning-server.herokuapp.com';
+const serverURL = 'http://localhost:3333'
+const reactURL = 'http://localhost:3000'
 
 const Navbar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-light bg-light">
-			<Link className="navbar-brand" to="/" > Flight Search </Link>
+			<Link className="navbar-brand" to="/" > SkyFlying </Link>
 			<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span className="navbar-toggler-icon"></span>
 			</button>
@@ -18,7 +19,7 @@ const Navbar = () => {
 						<Link className="nav-link" to="/">Home</Link>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href={serverURL+'/login'}>Login</a>
+						<a className="nav-link" href={serverURL+'/reservations'}>User Panel</a>
 					</li>
 				</ul>
 			</div>

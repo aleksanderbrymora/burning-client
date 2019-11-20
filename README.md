@@ -36,3 +36,7 @@ Response:
 - date
 - plane
 - seats taken by existing reservations
+
+# Pages in navbar
+
+| Home | react | localhost:3000 |
