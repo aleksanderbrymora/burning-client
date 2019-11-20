@@ -42,7 +42,6 @@ class SearchForm extends Component {
 		return (
 			<div>
 				<h2>Search for a flight</h2>
-				<p>Only try Newcastle and Sydney cause Postman is confusing</p>
 				<form onSubmit={this._handleSubmit}>
 					<select
 						onChange={this._handleChangeOrigin}

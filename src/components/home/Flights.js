@@ -11,7 +11,6 @@ const Flight = (props) => {
 }
 
 const Flights = (props) => {
-	console.log(props);
 	if (!!props.flights) {
 		return (
 			<div>

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Row from './Row';
 import axios from 'axios';
 
 class Flight extends Component {
@@ -6,25 +7,48 @@ class Flight extends Component {
 		super();
 		this.state = {
 			id: props.match.params.id,
-			flight: {}
+			flight: null,
+			plane: null
 		}
 
 		const fetchFlight = () => {
 			const URL = `https://aleks-chris-burning-server.herokuapp.com/flights/${this.state.id}.json`;
 			axios.get(URL).then((data) => {
-					this.setState({ flight: data.data.data });
-					console.log(this.state);
-				})
+				this.setState({ 
+					flight: data.data.data,
+					plane: data.data.data.plane
+				 });
+				// console.log(URL);
+			})
 		}
 		fetchFlight();
 	}
-
+	
 	render() {
-		return (
-			<div>
-				<h2>{this.props.match.params.id}</h2>
-			</div>
-		)
+		// console.log(this.state);
+		// console.log(!!this.state.flight)
+		if (!!this.state.plane) {
+			const flight = this.state.flight;
+			const plane = this.state.plane;
+			console.log(flight);
+			console.log(plane);
+			// console.log(this.state);
+			return (
+				<div>
+					<div className="flight-data">
+						<h1>{flight.origin} to {flight.destination}</h1>
+						<h2>Flight number: {flight.number}</h2>
+						<h3>{flight.date}</h3>
+					</div>
+					<div className="seats-view">
+						
+						<Row rows={plane.row} cols={plane.column} taken={flight.taken_seats} />
+					</div>
+				</div>
+			)
+		} else {
+			return (null)
+		}
 	}
 }
 
