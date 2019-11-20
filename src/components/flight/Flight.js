@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Row from './Row';
 import axios from 'axios';
+import SeatChooser from './SeatChooser';
 
 class Flight extends Component {
 	constructor(props) {
@@ -42,7 +42,7 @@ class Flight extends Component {
 					</div>
 					<div className="seats-view">
 						
-						<Row rows={plane.row} cols={plane.column} taken={flight.taken_seats} />
+						<SeatChooser rows={plane.row} cols={plane.column} taken={flight.taken_seats} />
 					</div>
 				</div>
 			)
