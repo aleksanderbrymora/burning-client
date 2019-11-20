@@ -12,8 +12,7 @@ const Flight = (props) => {
 
 const Flights = (props) => {
 	console.log(props);
-	if (!!props.data) {
-		console.log(props.data);
+	if (!!props.flights) {
 		return (
 			<div>
 				<h5>Available flights</h5>

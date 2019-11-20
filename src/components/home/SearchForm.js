@@ -14,12 +14,10 @@ class SearchForm extends Component {
 
 		const fetchAirports = () => {
 			axios.get(URL_CITIES).then((response) => {
-				console.log(response.data);
 				this.setState({
 					cities: response.data
 				});
-				console.log(this.state);
-			}).then(() => console.log(this.state))
+			})
 		}
 		fetchAirports();
 		this._handleSubmit = this._handleSubmit.bind(this);

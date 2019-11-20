@@ -20,9 +20,7 @@ class Home extends Component {
 
   flightSearch(origin, destination) {
     axios.get(`${URL_BASE}/${origin}/${destination}.json`).then((response) => {
-      console.log(response);
       this.setState({ flights: response.data });
-      console.log(this.state);
     })
   }
 
