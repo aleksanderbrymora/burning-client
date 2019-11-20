@@ -3,7 +3,7 @@ import SearchForm from './SearchForm'
 import Flights from './Flights'
 import axios from 'axios';
 
-const URL_BASE = 'https://18d09913-278a-4ef4-94ac-3ed82f097c1c.mock.pstmn.io'
+const URL_BASE = 'https://aleks-chris-burning-server.herokuapp.com'
 
 class Home extends Component {
   constructor() {
@@ -20,6 +20,8 @@ class Home extends Component {
 
   flightSearch(origin, destination) {
     axios.get(`${URL_BASE}/${origin}/${destination}`).then((response) => {
+      console.log(response);
+      console.log(`${URL_BASE}/${origin.toLowerCase()}/${destination.toLowerCase()}`);
       this.setState({ flights: response.data });
     })
   }

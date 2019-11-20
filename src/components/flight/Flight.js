@@ -2,27 +2,23 @@ import React, { Component } from 'react'
 import axios from 'axios';
 
 class Flight extends Component {
-	constructor() {
+	constructor(props) {
 		super();
 		this.state = {
 			id: props.match.params.id,
 			flight: {}
 		}
 
-		const fetchID = () => {
-			console.log(this);
-			return this
+		const fetchFlight = () => {
+			const URL = `https://aleks-chris-burning-server.herokuapp.com/flights/${this.state.id}.json`;
+			console.log(URL);
+			axios.get(URL).then((data) => {
+					console.log(this.state.id);
+					this.setState({ flight: data.data });
+					console.log(this.state.flight);
+				})
 		}
-
-		console.log(this.state.id);
-		
-
-		// const fetchFlight = () => {
-		// 	axios.get(`http://5a5deda9.ngrok.io/flights/${}.json`).then((data) => {
-		// 		this.setState({ flight: data.data });
-		// 	})
-		// }
-		// fetchFlight();
+		fetchFlight();
 	}
 	
 	fetchID() {

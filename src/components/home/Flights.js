@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const Flight = (props) => {
-	const url = `/flight/${props.id}`
+	const url = `/flights/${props.id}`
 	return (
 		<p alt={props.id}>
 			{props.origin} -> {props.destination} - {props.date} <Link to={url}>Select</Link>
@@ -11,12 +11,13 @@ const Flight = (props) => {
 }
 
 const Flights = (props) => {
-	if (!!props.flights) {
+	console.log(props);
+	if (!!props.data) {
 		return (
 			<div>
 				<h5>Available flights</h5>
 				<div>
-					{props.flights.map((data) => {
+					{props.map((data) => {
 						return (
 							<Flight 
 								key={data.id}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
-const URL_CITIES = 'https://18d09913-278a-4ef4-94ac-3ed82f097c1c.mock.pstmn.io/flights'
+const URL_CITIES = 'https://aleks-chris-burning-server.herokuapp.com/cities.json'
 
 class SearchForm extends Component {
 	constructor() {
@@ -14,13 +14,14 @@ class SearchForm extends Component {
 
 		const fetchAirports = () => {
 			axios.get(URL_CITIES).then((response) => {
+				console.log(response.data);
 				this.setState({
-					cities: response.data.cities
+					cities: response.data
 				});
-			})
+				console.log(this.state);
+			}).then(() => console.log(this.state))
 		}
 		fetchAirports();
-
 		this._handleSubmit = this._handleSubmit.bind(this);
 		this._handleChangeOrigin = this._handleChangeOrigin.bind(this);
 		this._handleChangeDestination = this._handleChangeDestination.bind(this);
@@ -28,7 +29,6 @@ class SearchForm extends Component {
 
 	_handleSubmit(event) {
 		event.preventDefault();
-		// !Works only with Newcastle and Sydney for the time of testing
 		this.props.onSubmit(this.state.origin, this.state.destination);
 	}
 
