@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import SeatChooser from './SeatChooser';
+import { Link } from 'react-router-dom';
+
 
 class Flight extends Component {
 	constructor(props) {
@@ -35,6 +37,17 @@ class Flight extends Component {
 			// console.log(this.state);
 			return (
 				<div className="container">
+					
+					<nav className='row bg-primary d-flex flex-row '>
+          				<div className='col-5 d-flex flex-row justify-content-between'>
+							<Link className='nav-item m-2 btn btn-outline-light' to='#'>Flights</Link>
+							<Link className='nav-item m-2 btn btn-outline-light' to='#'>Reservations</Link>
+							<Link className='nav-item m-2 btn btn-outline-light' to='#'>Planes</Link>
+          				</div>
+						<div className='col-7 d-flex flex-row justify-content-end'>
+						</div>
+        			</nav>
+					
 					<div className="flight-data m-3">
 						<h1>{flight.origin} to {flight.destination}</h1>
 						<h3>Flight number: {flight.number}</h3>
