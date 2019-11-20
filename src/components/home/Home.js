@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchForm from './SearchForm'
 import Flights from './Flights'
 import axios from 'axios';
+import Navbar from '../nav/Navbar'
 
 const URL_BASE = 'https://aleks-chris-burning-server.herokuapp.com'
 
@@ -26,9 +27,12 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="container">
-        <SearchForm onSubmit={this.flightSearch} />
-        <Flights flights={this.state.flights} />
+      <div>
+        <Navbar />
+        <div className="container">
+          <SearchForm onSubmit={this.flightSearch} />
+          <Flights flights={this.state.flights} />
+        </div>
       </div>
     )
   };
