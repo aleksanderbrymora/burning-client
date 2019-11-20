@@ -1,13 +1,11 @@
 
 
-td {
-  width: 45px;
-}
-
-table {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.cell {
+  width: 35px;
+  height: 35px;
 }
 
 $primary: #CE2029;
+
+@import "~bootstrap/scss/bootstrap";
+
