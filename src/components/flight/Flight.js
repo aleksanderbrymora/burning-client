@@ -46,8 +46,7 @@ class Flight extends Component {
 							<h5>{flight.date}</h5>
 						</div>
 						<div className="seats-view mt-5 mx-auto">
-							<h2 className="text-center">Choose your seat</h2>
-							<SeatChooser rows={plane.row} cols={plane.column} taken={flight.taken_seats} />
+							<SeatChooser rows={plane.row} cols={plane.column} taken={flight.taken_seats} flightId={flight.id}/>
 						</div>
 					</div>
 				</div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Submit from './Submit';
 
 class SeatChooser extends Component {
     constructor() {
@@ -25,10 +26,19 @@ class SeatChooser extends Component {
 
     render() {
         return (
-            <div>
-                <table>
-                    <Rows taken={this.props.taken} chosen={this.state.seatPicked.code} cols={this.props.cols} rows={this.props.rows} onClick={this._handleSeatPick} />
-                </table>
+            <div className='container'>
+                <div className='d-flex flex-row justify-content-end'>
+                    <div className='w-25'>
+                        <Submit chosenSeat={this.state.seatPicked.code} flightId={this.props.flightId}/>
+                    </div>
+                    
+                    <div className='w-75'>
+                        <h4 className="text-right">Choose your seat</h4>
+                        <table className='table'>
+                            <Rows taken={this.props.taken} chosen={this.state.seatPicked.code} cols={this.props.cols} rows={this.props.rows} onClick={this._handleSeatPick} />
+                        </table>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -52,7 +62,7 @@ const Rows = (props) => {
     rowItems = rowArr.map( (row) => <Columns taken={props.taken} chosen={props.chosen} key={row} cols={colArr} row={row} onClick={props.onClick}/> )
 
     return(
-        <tbody>
+        <tbody className='w-100'>
             {rowItems}
         </tbody>
     )
@@ -65,7 +75,7 @@ const Columns = (props) => {
     seatItems = props.cols.map( (col) =>  <Seat taken={props.taken} chosen={props.chosen} key={col} col={col} row={props.row} onClick={props.onClick} /> )
 
     return(
-        <tr>
+        <tr className='d-flex flex-row w-100 justify-content-end'>
             {seatItems}
         </tr>
     )
@@ -78,10 +88,10 @@ const Seat = (props) => {
     if (seat.length === 2) seat = '0' + seat;
 
     if (props.taken[seat]) {
-        return (<td className="btn btn-warning m-1">{props.taken[seat]}</td>)
+        return (<td className="col-1 font-weight-light btn btn-warning m-1 text-capitalize">{props.taken[seat].split('@')[0]}</td>)
     } else if (props.chosen === seat) {
-        return (<td className="btn btn-success m-1">You</td>)
+        return (<td className="col-1 font-weight-light btn btn-success m-1">You</td>)
     } else {
-        return (<td className="btn btn-sm btn-outline-success m-1" onClick={() => props.onClick(seat, props.col, row)}>{seat}</td>)
+        return (<td className="col-1 font-weight-light font- btn btn-sm btn-outline-success m-1" onClick={() => props.onClick(seat, props.col, row)}>{seat}</td>)
     }
 }
