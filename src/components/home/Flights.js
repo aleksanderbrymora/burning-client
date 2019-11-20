@@ -13,17 +13,18 @@ const Flight = (props) => {
 const Flights = (props) => {
 	console.log(props);
 	if (!!props.data) {
+		console.log(props.data);
 		return (
 			<div>
 				<h5>Available flights</h5>
 				<div>
-					{props.map((data) => {
+					{props.flights.map((flight) => {
 						return (
 							<Flight 
-								key={data.id}
-								id={data.id}
-								origin={data.origin}
-								destination={data.destination}
+								key={flight.id}
+								id={flight.id}
+								origin={flight.origin}
+								destination={flight.destination}
 							/>
 						)
 					})}
