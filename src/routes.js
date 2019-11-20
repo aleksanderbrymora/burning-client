@@ -9,7 +9,7 @@ const Routes = (
 	<Router>
 		<div>
 			<Route exact path="/" component={Home} />
-			<Route path="/flight/:id" component={Flight} />
+			<Route path="/flights/:id" component={Flight} />
 		</div>
 	</Router>
 );

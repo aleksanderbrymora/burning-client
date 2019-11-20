@@ -12,7 +12,9 @@ class Flight extends Component {
 		const fetchFlight = () => {
 			const URL = `https://aleks-chris-burning-server.herokuapp.com/flights/${this.state.id}.json`;
 			axios.get(URL).then((data) => {
-					this.setState({ flight: data.data });
+					// console.log(data.data.data);
+					this.setState({ flight: data.data.data });
+					console.log(this.state);
 				})
 		}
 		fetchFlight();
