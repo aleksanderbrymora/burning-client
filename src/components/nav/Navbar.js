@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // !Temp links for the navigation between React and Server sites
 // const serverURL = 'https://aleks-chris-burning-server.herokuapp.com';
-const serverURL = 'http://localhost:3333'
+const serverURL = 'https://aleks-chris-burning-server.herokuapp.com'
 const reactURL = 'http://localhost:3000'
 
 const Navbar = () => {
