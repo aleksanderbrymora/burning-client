@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 // !Temp links for the navigation between React and Server sites
 // const serverURL = 'https://aleks-chris-burning-server.herokuapp.com';
 const serverURL = 'https://aleks-chris-burning-server.herokuapp.com'
-const reactURL = 'http://localhost:3000'
 
 const Navbar = () => {
 	return (
@@ -19,7 +18,7 @@ const Navbar = () => {
 						<Link className="nav-link" to="/">Home</Link>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link" href={serverURL+'/reservations'}>User Panel</a>
+						<a className="nav-link" href={serverURL}>User Panel</a>
 					</li>
 				</ul>
 			</div>

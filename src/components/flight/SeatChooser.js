@@ -39,7 +39,7 @@ class SeatChooser extends Component {
         return (
             <div className='container'>
                 <div className='d-flex flex-row justify-content-end'>
-                    <div className='w-25'>
+                    <div className='w-25 p-3'>
                         <Submit chosenSeat={this.state.seatPicked.code} flightId={this.props.flightId} clearSeat={this.clearSeat}/>
                     </div>
                     
@@ -99,10 +99,10 @@ const Seat = (props) => {
     if (seat.length === 2) seat = '0' + seat;
 
     if (props.taken[seat]) {
-        return (<td className="col-1 font-weight-light btn btn-warning m-1 text-capitalize">{props.taken[seat].split('@')[0]}</td>)
+        return (<td className="col-xl-1 text-truncate font-weight-light btn btn-warning m-1 text-capitalize">{props.taken[seat].split('@')[0]}</td>)
     } else if (props.chosen === seat) {
-        return (<td className="col-1 font-weight-light btn btn-success m-1">You</td>)
+        return (<td className="col-xl-1 font-weight-light btn btn-success m-1">You</td>)
     } else {
-        return (<td className="col-1 font-weight-light font- btn btn-sm btn-outline-success m-1" onClick={() => props.onClick(seat, props.col, row)}>{seat}</td>)
+        return (<td className="col-xl-1 font-weight-light font- btn btn-sm btn-outline-success m-1" onClick={() => props.onClick(seat, props.col, row)}>{seat}</td>)
     }
 }
