@@ -50,24 +50,62 @@ class Submit extends Component {
         }
     }
 
+
+//             {/* <div className='container' onSubmit={this._handleSubmit}>
+
+//             <form>
+//   <div class="form-group">
+//     <label for="exampleInputEmail1">Email address</label>
+//     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+//     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+//   </div>
+//   <div class="form-group">
+//     <label for="exampleInputPassword1">Password</label>
+//     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+//   </div>
+//   <div class="form-group form-check">
+//     <input type="checkbox" class="form-check-input" id="exampleCheck1">
+//     <label class="form-check-label" for="exampleCheck1">Check me out</label>
+//   </div>
+//   <button type="submit" class="btn btn-primary">Submit</button>
+// </form> */}
+
     render() {
         return(
-            <div className='container' onSubmit={this._handleSubmit}>
-                <h4>Your Details:</h4>
+            <div>
                 <form>
-                    <label className='row'>
-                        Name:
-                            <input type='text' onChange={this._handleInputName} value={this.state.name}></input>
-                    </label>
-                    <label className='row'>
-                        Email:
-                            <input type='email' onChange={this._handleInputEmail} value={this.state.email}></input>
-                    </label>
-                    <label className='row'>
-                        Seat:
-                            <p>{this.props.chosenSeat}</p>
-                    </label>
-                    <button className='row'>Book Flight</button>
+                    <div className="form-group">
+                        <label className='row' for="name">Your name</label>
+                        <input 
+                            onChange={this._handleInputName} 
+                            value={this.state.name} 
+                            type="text" 
+                            class="form-control" 
+                            id="name" 
+                            aria-describedby="emailHelp" 
+                            placeholder="Enter Name"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label className='row' for="exampleInputEmail1">Email address</label>
+                        <input 
+                            type="email" 
+                            class="form-control" 
+                            id="exampleInputEmail1" 
+                            aria-describedby="emailHelp" 
+                            placeholder="Enter email"
+                            onChange={this._handleInputEmail}
+                            value={this.state.email}
+                            required
+                        />
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone.</small>
+                    </div>
+                    <div className="form-gorup">
+                        <label className='row'>Seat</label>
+                        <p>{this.props.chosenSeat}</p>
+                    </div>
+                    <button type="submit" className='row btn btn-outline-success'>Book Flight</button>
                 </form>
             </div>
         )
