@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import Navbar from '../nav/Navbar'
 
-const URL_BASE = 'https://aleks-chris-burning-server.herokuapp.com'
+const URL_BASE = 'https://aleks-chris-burning-server.herokuapp.com/'
 
 class Home extends Component {
   constructor() {
@@ -28,7 +28,6 @@ class Home extends Component {
 
   render() {
     return (
-
       <div>
         <Navbar />
         <div className="container">
