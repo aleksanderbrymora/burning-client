@@ -75,12 +75,12 @@ class Submit extends Component {
             <div>
                 <form onSubmit={this._handleSubmit}>
                     <div className="form-group">
-                        <label className='row' for="name">Your name</label>
+                        <label className='row'>Your name</label>
                         <input 
                             onChange={this._handleInputName} 
                             value={this.state.name} 
                             type="text" 
-                            class="form-control" 
+                            className="form-control" 
                             id="name" 
                             aria-describedby="emailHelp" 
                             placeholder="Enter Name"
@@ -88,10 +88,10 @@ class Submit extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label className='row' for="exampleInputEmail1">Email address</label>
+                        <label className='row'>Email address</label>
                         <input 
                             type="email" 
-                            class="form-control" 
+                            className="form-control" 
                             id="exampleInputEmail1" 
                             aria-describedby="emailHelp" 
                             placeholder="Enter email"
@@ -99,7 +99,7 @@ class Submit extends Component {
                             value={this.state.email}
                             required
                         />
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone.</small>
+                        <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone.</small>
                     </div>
                     <div className="form-gorup">
                         <label className='row'>Seat</label>

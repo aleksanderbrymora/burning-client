@@ -8,6 +8,7 @@ class SearchForm extends Component {
 		super();
 		this.state = {
 			cities: [],
+			destinations: [],
 			origin: '',
 			destination: ''
 		}
@@ -31,7 +32,12 @@ class SearchForm extends Component {
 	}
 
 	_handleChangeOrigin(event) {
+		this.setState({destinations: []});
 		this.setState({ origin: event.target.value })
+		axios.get(`https://aleks-chris-burning-server.herokuapp.com/${event.target.value.toLowerCase()}/destinations.json`).then((r) => {
+			console.log(r);
+			this.setState({destinations: r.data});
+		})
 	}
 
 	_handleChangeDestination(event) {
@@ -70,7 +76,7 @@ class SearchForm extends Component {
 							className="custom-select"
 						>
 							<option></option>
-							{this.state.cities.map((airport) => {
+							{this.state.destinations.map((airport) => {
 								return <option value={airport} key={airport}>{airport}</option>
 							})}
 						</select>
