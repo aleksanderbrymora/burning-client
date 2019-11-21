@@ -44,7 +44,7 @@ class SeatChooser extends Component {
                     </div>
                     
                     <div className='w-75'>
-                        <h4 className="text-right">Choose your seat</h4>
+                        <h4 className="text-right">Choose your seat:</h4>
                         <table className='table'>
                             <Rows taken={this.props.taken} chosen={this.state.seatPicked.code} cols={this.props.cols} rows={this.props.rows} onClick={this._handleSeatPick} />
                         </table>
