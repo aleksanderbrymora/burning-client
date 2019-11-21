@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
-// const URL_BASE = 'https://aleks-chris-burning-server.herokuapp.com'
-const URL_BASE = 'http://localhost:3000'
+const URL_BASE = 'https://aleks-chris-burning-server.herokuapp.com'
+// const URL_BASE = 'http://localhost:3000'
 
 
 class Submit extends Component {
@@ -37,9 +37,15 @@ class Submit extends Component {
                 seat: this.props.chosenSeat,
                 flight_id: this.props.flightId
             }
-            console.log(reservation)
-            axios.post(`${URL_BASE}/reservations.json`, reservation).then((response) =>
-                console.log(response)
+            axios.post(`${URL_BASE}/reservations.json`, reservation).then((response) => {
+                //refresh or something?
+                console.log('success')
+                this.props.clearSeat();
+                this.setState({
+                    name: '',
+                    email: ''
+                })
+                }
             )
         }
     }
@@ -51,11 +57,11 @@ class Submit extends Component {
                 <form>
                     <label className='row'>
                         Name:
-                            <input type='text' onChange={this._handleInputName}></input>
+                            <input type='text' onChange={this._handleInputName} value={this.state.name}></input>
                     </label>
                     <label className='row'>
                         Email:
-                            <input type='email' onChange={this._handleInputEmail}></input>
+                            <input type='email' onChange={this._handleInputEmail} value={this.state.email}></input>
                     </label>
                     <label className='row'>
                         Seat:

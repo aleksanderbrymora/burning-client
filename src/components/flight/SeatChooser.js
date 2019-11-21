@@ -12,6 +12,7 @@ class SeatChooser extends Component {
             }
         }
         this._handleSeatPick = this._handleSeatPick.bind(this)
+        this.clearSeat = this.clearSeat.bind(this)
     }
 
     _handleSeatPick (seat, col, row) {
@@ -24,12 +25,22 @@ class SeatChooser extends Component {
         })
     }
 
+    clearSeat() {
+        this.setState({
+            seatPicked: {
+                code: '',
+                row: '',
+                col: ''
+            }
+        })
+    }
+
     render() {
         return (
             <div className='container'>
                 <div className='d-flex flex-row justify-content-end'>
                     <div className='w-25'>
-                        <Submit chosenSeat={this.state.seatPicked.code} flightId={this.props.flightId}/>
+                        <Submit chosenSeat={this.state.seatPicked.code} flightId={this.props.flightId} clearSeat={this.clearSeat}/>
                     </div>
                     
                     <div className='w-75'>

@@ -20,8 +20,9 @@ class Flight extends Component {
 					flight: data.data.data,
 					plane: data.data.data.plane
 				 });
-				// console.log(URL);
-			})
+				 setTimeout(fetchFlight, 1000);
+				 console.log('reload')
+				})
 		}
 		fetchFlight();
 	}
