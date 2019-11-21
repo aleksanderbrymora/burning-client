@@ -53,7 +53,7 @@ class Submit extends Component {
     render() {
         return(
             <div className='container' onSubmit={this._handleSubmit}>
-                <h4>Please confirm your details</h4>
+                <h4>Your Details:</h4>
                 <form>
                     <label className='row'>
                         Name:
