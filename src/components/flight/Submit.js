@@ -73,7 +73,7 @@ class Submit extends Component {
     render() {
         return(
             <div>
-                <form>
+                <form onSubmit={this._handleSubmit}>
                     <div className="form-group">
                         <label className='row' for="name">Your name</label>
                         <input 
