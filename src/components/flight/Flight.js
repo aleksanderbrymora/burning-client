@@ -28,14 +28,9 @@ class Flight extends Component {
 	}
 	
 	render() {
-		// console.log(this.state);
-		// console.log(!!this.state.flight)
 		if (!!this.state.plane) {
 			const flight = this.state.flight;
 			const plane = this.state.plane;
-			// console.log(flight);
-			// console.log(plane);
-			// console.log(this.state);
 			return (
 
 				<div>
